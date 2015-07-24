@@ -29,7 +29,7 @@ method new ($server_response, $client) {
 #  $*ERR.say: "Server response: $server_response";
   my @content = $server_response.split($CRLF);
   my $status_line = @content.shift;
-  my ($protocol, $status, $message) = $status_line.split(/\s/);
+  my ($protocol, $status, $message) = $status_line.split(/\s/,3);
   if ! $message {
     $message = get_http_status_msg($status);
   }
